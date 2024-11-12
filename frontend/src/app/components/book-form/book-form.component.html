@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center mt-5">
+    <div *ngIf="message" class="alert alert-danger">
+        {{ message }}
+      </div>
+
+    <form (ngSubmit)="onSubmit(bookForm)" #bookForm="ngForm" class="w-50 p-4 border rounded shadow-sm">
+      <h4 class="text-center mb-4">Book Form</h4>
+  
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="title"
+          [(ngModel)]="book.title"
+          name="title"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="author"
+          [(ngModel)]="book.author"
+          name="author"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="publishedYear" class="form-label">Published Year</label>
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="publishedYear"
+          [(ngModel)]="book.publishedYear"
+          name="publishedYear"
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="genre"
+          [(ngModel)]="book.genre"
+          name="genre"
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary btn-sm w-100">Save</button>
+    </form>
+  </div>
+  

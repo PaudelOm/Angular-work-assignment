@@ -1,0 +1,30 @@
+<div class="book-list">
+    <h2>Book List</h2>
+    
+    <!-- Add New Book Button -->
+    <a routerLink="/books/new" class="btn btn-success btn-sm rounded-pill shadow-sm mb-3">Add new book!</a>
+  
+    <!-- Check if there are books to display -->
+    <div *ngIf="books.length > 0; else noBooks">
+      <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tempbook of books">
+            <td>{{ tempbook.title }}</td>
+            <td>{{ tempbook.author }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Template displayed when there are no books -->
+    <ng-template #noBooks>
+      <p>No books available.</p>
+    </ng-template>
+  </div>
+  
