@@ -9,7 +9,7 @@ import { BookService } from './service/book.service';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookFormComponent } from './components/book-form/book-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes= [
   {path: 'books/new', component: BookFormComponent},
@@ -30,6 +30,7 @@ const routes: Routes= [
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [

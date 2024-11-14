@@ -3,7 +3,7 @@
         {{ message }}
       </div>
 
-    <form (ngSubmit)="onSubmit(bookForm)" #bookForm="ngForm" class="w-50 p-4 border rounded shadow-sm">
+    <form class="w-50 p-4 border rounded shadow-sm" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
       <h4 class="text-center mb-4">Book Form</h4>
   
       <div class="mb-3">
@@ -11,11 +11,17 @@
         <input
           type="text"
           class="form-control form-control-sm"
-          id="title"
-          [(ngModel)]="book.title"
-          name="title"
-          required
+          formControlName = "title"
         />
+        <small *ngIf="reactiveForm.get('title').invalid" >
+          <small *ngIf="reactiveForm.get('title').hasError('required')" >
+            *book name is required
+          </small>
+          <small *ngIf="reactiveForm.get('title').hasError('minlength')" >
+            *book name should be longer
+          </small>
+        </small>
+        
       </div>
   
       <div class="mb-3">
@@ -23,10 +29,7 @@
         <input
           type="text"
           class="form-control form-control-sm"
-          id="author"
-          [(ngModel)]="book.author"
-          name="author"
-          required
+          formControlName = "author"
         />
       </div>
   
@@ -35,9 +38,7 @@
         <input
           type="number"
           class="form-control form-control-sm"
-          id="publishedYear"
-          [(ngModel)]="book.publishedYear"
-          name="publishedYear"
+          formControlName = "year"
         />
       </div>
   
@@ -46,9 +47,7 @@
         <input
           type="text"
           class="form-control form-control-sm"
-          id="genre"
-          [(ngModel)]="book.genre"
-          name="genre"
+          formControlName = "genre"
         />
       </div>
   
